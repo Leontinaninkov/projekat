@@ -1,0 +1,25 @@
+[
+  {
+    "korisnicko_ime": "Pavle1",
+    "lozinka": "abcdef",
+    "ime": "Pavle",
+    "prezime": "Stefanović",
+    "tip_korisnika": "Administrator"
+  },
+
+  {
+    "korisnicko_ime": "Stefan2",
+    "lozinka": "aghjkf",
+    "ime": "Stefan",
+    "prezime": "Marković",
+    "tip_korisnika": "Prodavac"
+  },
+
+    {
+    "korisnicko_ime": "Nikola3",
+    "lozinka": "optfrc",
+    "ime": "Nikola",
+    "prezime": "Petrović",
+    "tip_korisnika": "Menadžer"
+  }
+]

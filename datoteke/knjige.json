@@ -1,0 +1,35 @@
+[
+    {
+        "sifra": 1,
+        "isbn": "112233",
+        "naslov": "Poslednja seansa",
+        "autor": "Agata Kristi",
+        "izdavac": "Vulkan",
+        "godina_izdanja": 2020,
+        "broj_strana": 230,
+        "cena": 899.0,
+        "kategorija": "roman"
+    },
+    {
+        "sifra": 2,
+        "isbn": "556677",
+        "naslov": "Deca zla",
+        "autor": "Miodrag Majić",
+        "izdavac": "Laguna",
+        "godina_izdanja": 2018,
+        "broj_strana": 150,
+        "cena": 1300.0,
+        "kategorija": "roman"
+    },
+    {
+        "sifra": 3,
+        "isbn": "789123",
+        "naslov": "Mračna šuma",
+        "autor": "Liju Cisin",
+        "izdavac": "Vulkan",
+        "godina_izdanja": 2019,
+        "broj_strana": 315,
+        "cena": 1230.0,
+        "kategorija": "naučna fantastika"
+    }
+]
