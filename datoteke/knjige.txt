@@ -1,3 +1,4 @@
 1|Poslednja seansa|112233|Agata Kristi|Vulkan|899|2020|roman
 2|Deca zla|556677|Miodrag Majić|Laguna|1300|2018|roman
 3|Mračna šuma|789123|Liju Cisin|Vulkan|1230|2019|naučna fantastika
+4|Na Drini ćuprija|223344|Ivo Andrić|Laguna|900|1945|roman

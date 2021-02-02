@@ -1,39 +1,20 @@
 from korisnici.korisnik import prijava
-from knjige.knjiga import prikazi_knjige, pretrazi_knjige
+from meni import meni
 
-
-def meni_administrator(ulogovani_korisnik):
-    while True:
-        print()
-        print("-"*20)
-        print("1. Prikaz knjiga")
-        print("2. Pretraga knjiga")
-        print("3. Prikaz akcija")
-        print("4. Pretraga akcija")
-        print("10. Kraj")
-        print("-" * 20)
-
-        stavka = int(input("Izaberite stavku: "))
-        
-        if stavka == 1:
-            prikazi_knjige()
-        elif stavka == 2:
-            pretrazi_knjige()
-        elif stavka == 10:
-            return
-        else:
-            print("Pogresan izbor!")
 
 def main():
-    ulogovani_korisnik = prijava()
+    ulogovani_korisnik = None,
+    while ulogovani_korisnik == None:
 
-    if ulogovani_korisnik is not None:
-        if ulogovani_korisnik['tip_korisnika'] == 'Administrator':
-            meni_administrator(ulogovani_korisnik)
-        elif ulogovani_korisnik['tip_korisnika'] == 'Menadzer':
-            pass
-        elif ulogovani_korisnik['tip_korisnika'] == 'Prodavac':
-            pass
+        ulogovani_korisnik = prijava()
+
+        if ulogovani_korisnik is not None:
+            break
         else:
-            print("Greska! Nepostojeca uloga!")
-main()
+            print("Pogresno korisnicko ime ili lozinka!\n")
+
+    meni(ulogovani_korisnik)
+
+
+if __name__ == "__main__":
+    main()

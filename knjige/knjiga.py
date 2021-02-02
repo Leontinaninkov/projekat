@@ -1,4 +1,4 @@
-from knjige.knjigaIO import ucitaj_knjige
+from knjige.knjigaIO import ucitaj_knjige, sacuvaj_knjige
 from util import bubble_sort
 
 def prikazi_knjige():
@@ -94,7 +94,7 @@ def ispisi_knjige(knjige):
     print("-"*len(zaglavlje))
 
     for knjiga in knjige:
-
+     if knjiga['obrisana'] == "False":
         za_ispis = f"{knjiga['sifra']:<10}" \
                    f"{knjiga['naslov']:<20}" \
                    f"{knjiga['autor']:<20}" \
@@ -107,3 +107,86 @@ def ispisi_knjige(knjige):
         print(za_ispis)
 
 
+def dodaj_knjigu():
+    knjige = ucitaj_knjige()
+    maks = knjige[0]['sifra']
+    for knjiga in knjige:
+        if knjiga['sifra'] > maks:
+            maks = knjiga['sifra']
+
+    sifra = maks + 1
+
+    naslov = input('Naslov: ')
+    autor = input('Autor: ')
+    isbn = input('isbn: ')
+    izdavac = input('Izdavac: ')
+    godina_izdanja = int(input("Godinja izdanja"))
+    broj_strana = int(input('Broj strana: '))
+    cena = int(input('Cena: '))
+    kategorija = input('Kategorija')
+
+    knjige.append({'sifra': sifra,
+                   'naslov': naslov,
+                   'autor': autor,
+                   'isbn': isbn,
+                   'izdavac': izdavac,
+                   'godina_izdanja': godina_izdanja,
+                   'broj_strana': broj_strana,
+                   'cena': cena,
+                   'kategorija': kategorija,
+                   'obrisana': "False"
+                   })
+    sacuvaj_knjige(knjige)
+
+
+def izmeni_knjigu():
+    knjige = ucitaj_knjige()
+    ispisi_knjige(knjige)
+    sifra = int(input("Unesite sifru knjige: "))
+    k = None
+    for knjiga in knjige:
+        if knjiga['sifra'] == sifra:
+            k = knjiga
+
+    temp = input('Naslov: ')
+    naslov = k['naslov'] if temp == "" else temp
+    temp = input('Autor: ')
+    autor = k['autor'] if temp == "" else temp
+    temp = input('isbn: ')
+    isbn = k['isbn'] if temp == "" else temp
+    temp = input('Izdavac: ')
+    izdavac = k['izdavac'] if temp == "" else temp
+
+    temp = input("Godinja izdanja")
+    godina_izdanja = k['godina_izdanja'] if temp == "" else int(temp)
+    temp = input('Broj strana: ')
+    broj_strana = k['broj_strana'] if temp == "" else int(temp)
+    temp = input('Cena: ')
+    cena = k['cena'] if temp == "" else int(temp)
+    temp = input('Kategorija')
+    kategorija = k['kategorija'] if temp == "" else temp
+
+    for knjiga in knjige:
+        if knjiga['sifra'] == sifra:
+            knjiga['naslov'] = naslov
+            knjiga['autor'] = autor
+            knjiga['isbn'] = isbn
+            knjiga['izdavac'] = izdavac
+            knjiga['godina_izdanja'] = godina_izdanja
+            knjiga['broj_strana'] = broj_strana
+            knjiga['cena'] = cena
+            knjiga['kategorija'] = kategorija
+
+    sacuvaj_knjige(knjige)
+
+
+def obrisi_knjigu():
+    knjige = ucitaj_knjige()
+    ispisi_knjige(knjige)
+    sifra = int(input("Unesite sifru knjige: "))
+
+    for knjiga in knjige:
+        if knjiga['sifra'] == sifra:
+            knjiga['obrisana'] = "True"
+
+    sacuvaj_knjige(knjige)

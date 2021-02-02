@@ -8,7 +8,8 @@
         "godina_izdanja": 2020,
         "broj_strana": 230,
         "cena": 899.0,
-        "kategorija": "roman"
+        "kategorija": "roman",
+        "obrisana": "True"
     },
     {
         "sifra": 2,
@@ -19,7 +20,8 @@
         "godina_izdanja": 2018,
         "broj_strana": 150,
         "cena": 1300.0,
-        "kategorija": "roman"
+        "kategorija": "roman",
+        "obrisana": "False"
     },
     {
         "sifra": 3,
@@ -30,6 +32,19 @@
         "godina_izdanja": 2019,
         "broj_strana": 315,
         "cena": 1230.0,
-        "kategorija": "naučna fantastika"
+        "kategorija": "naučna fantastika",
+        "obrisana": "False"
+    },
+    {
+        "sifra": 4,
+        "naslov": "Na drini cuprija",
+        "autor": "Ivo Andric",
+        "isbn": "223344",
+        "izdavac": "Laguna",
+        "godina_izdanja": 1945,
+        "broj_strana": 318,
+        "cena": 900.0,
+        "kategorija": "roman",
+        "obrisana": "False"
     }
 ]
