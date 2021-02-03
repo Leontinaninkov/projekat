@@ -27,8 +27,8 @@ def meni(ulogovani_korisnik):
             print('6. Izmena Knjige')
             print('7. Brisanje knjige')
 
-        print("-" * 20)
-        stavka = int(input("Izaberite stavku: "))
+            print("-" * 20)
+            stavka = int(input("Izaberite stavku: "))
 
         if stavka == 1:
             prikazi_knjige()

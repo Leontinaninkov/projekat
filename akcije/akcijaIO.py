@@ -1,6 +1,5 @@
 import json
 
-
 datoteka = 'datoteke/akcije.json'
 
 def sacuvaj_akcije(akcije):

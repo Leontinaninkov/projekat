@@ -81,6 +81,7 @@ def pretraga_knjiga_string(kljuc, vrednost):
 
 
 def ispisi_knjige(knjige):
+
     zaglavlje = f"{'sifra':<10}" \
                f"{'naslov':<20}" \
                f"{'autor':<20}" \

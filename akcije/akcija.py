@@ -1,7 +1,7 @@
-from akcije.akcijaIO import ucitaj_akcije
+from akcije.akcijaIO import ucitaj_akcije, sacuvaj_akcije
 from knjige.knjigaIO import ucitaj_knjige
 from util import bubble_sort, bubble_sort_dt
-
+from knjige.knjiga import ispisi_knjige
 
 def prikazi_akcije():
 
@@ -19,7 +19,6 @@ def prikazi_akcije():
         bubble_sort_dt(akcije, "datum")
 
     ispisi_akcije(akcije, knjige)
-
 
 def pretrazi_akcije():
     print()
@@ -49,6 +48,36 @@ def pretrazi_akcije():
     ispisi_akcije(akcije, knjige)
 
 
+def dodaj_akciju():
+    akcije = ucitaj_akcije()
+    knjige = ucitaj_knjige()
+    maks = akcije[0]['sifra']
+    for akcija in akcije:
+        if akcija['sifra'] > maks:
+            maks = akcija['sifra']
+
+    sifra = maks + 1
+
+    ponuda = {}
+    ispisi_knjige(knjige)
+
+    datum = input('Unesite datum (dd/MM/yyyy): ')
+
+    while (True):
+        p = input('Unesite akciju (id:cena) [x->kraj]: ')
+        if p == 'x':
+            break
+        ponuda[p.split(':')[0]] = int(p.split(':')[1])
+
+    akcije.append(
+        {
+            'sifra': sifra,
+            'ponuda': ponuda,
+            'datum': datum
+        })
+
+    sacuvaj_akcije(akcije)
+
 def pretraga_akcija_sifra(kljuc, vrednost):
     akcije = ucitaj_akcije()
     pronadjene_akcije = []
@@ -74,7 +103,7 @@ def pretraga_akcija_jednakost(kljuc, vrednost):
                     break
 
             if pronadjen:
-                break;
+                break
 
     return pronadjene_akcije
 
@@ -93,7 +122,7 @@ def pretraga_akcija_string(kljuc, vrednost):
                     break
 
             if pronadjen:
-                break;
+                break
 
     return pronadjene_akcije
 
