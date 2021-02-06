@@ -54,6 +54,9 @@ def pretrazi_knjige():
     elif stavka == 5:
         izdavac = input("Unesite izdavaca: ")
         knjige = pretraga_knjiga_string("izdavac", izdavac)
+    elif stavka == 6:
+        cena = int(input("Unesite cenu: "))
+        knjige = pretraga_knjiga_jednakost("cena", cena)
 
     ispisi_knjige(knjige)
 
