@@ -2,8 +2,8 @@ from korisnici.korisnik import prijava, registracija, svi_korisnici
 from knjige.knjiga import prikazi_knjige, pretrazi_knjige, dodaj_knjigu, izmeni_knjigu, obrisi_knjigu
 from akcije.akcija import prikazi_akcije, pretrazi_akcije, dodaj_akciju
 from kupovina.korpa import dodaj_u_korpu
-from util import  menadzer, prodavac, admin
-
+from util import menadzer, prodavac, admin
+from knjige.izvestaj import napravi_izvestaj
 
 def meni(ulogovani_korisnik):
     while True:
@@ -28,8 +28,8 @@ def meni(ulogovani_korisnik):
             print('6. Izmena Knjige')
             print('7. Brisanje knjige')
 
-            print("-" * 20)
-            stavka = int(input("Izaberite stavku: "))
+        print("-" * 20)
+        stavka = int(input("Izaberite stavku: "))
 
         if stavka == 1:
             prikazi_knjige()
@@ -56,6 +56,9 @@ def meni(ulogovani_korisnik):
             dodaj_akciju()
         elif stavka == 8 and prodavac(ulogovani_korisnik):
             dodaj_u_korpu(ulogovani_korisnik)
+        elif stavka == 8 and menadzer(ulogovani_korisnik):
+            napravi_izvestaj()
+
 
         elif stavka == 0:
             return
