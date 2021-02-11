@@ -1,0 +1,62 @@
+[
+    {
+        "sifra": 11,
+        "prodavac": "stefan2",
+        "datum_vreme": "10/02/2021, 17:03:03",
+        "korpa": {
+            "2": {
+                "kolicina": 1,
+                "cena": 1300.0
+            }
+        }
+    },
+    {
+        "sifra": 12,
+        "prodavac": "stefan2",
+        "datum_vreme": "10/02/2021, 17:03:57",
+        "korpa": {
+            "2": {
+                "kolicina": 1,
+                "cena": 1300.0
+            }
+        }
+    },
+    {
+        "sifra": 13,
+        "prodavac": "stefan2",
+        "datum_vreme": "10/02/2021, 17:05:28",
+        "korpa": {
+            "2": {
+                "kolicina": 2,
+                "cena": 1600.0
+            },
+            "3": {
+                "kolicina": 1,
+                "cena": 500
+            },
+            "4": {
+                "kolicina": 1,
+                "cena": 300
+            }
+        }
+    },
+    {
+        "sifra": 14,
+        "prodavac": "stefan2",
+        "datum_vreme": "11/02/2021, 13:04:57",
+        "korpa": {
+            "4": {
+                "kolicina": 2,
+                "cena": 1200.0
+            },
+            "2": {
+                "kolicina": 1,
+                "cena": 300
+            },
+            "3": {
+                "kolicina": 1,
+                "cena": 500
+            }
+        }
+    }
+]

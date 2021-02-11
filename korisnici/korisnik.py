@@ -8,7 +8,7 @@ def prijava():
     lozinka = input("lozinka: ")
 
     for korisnik in korisnici:
-        if korisnik['korisnicko_ime'] == korisnicko_ime and korisnik['lozinka'] == lozinka:
+        if korisnik['korisnicko_ime'].lower() == korisnicko_ime.lower() and korisnik['lozinka'] == lozinka:
             return korisnik
     return None
 

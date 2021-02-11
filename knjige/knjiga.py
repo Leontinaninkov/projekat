@@ -98,8 +98,8 @@ def ispisi_knjige(knjige):
     print("-"*len(zaglavlje))
 
     for knjiga in knjige:
-     if knjiga['obrisana'] == "False":
-        za_ispis = f"{knjiga['sifra']:<10}" \
+       if knjiga['obrisana'] == "False":
+          za_ispis = f"{knjiga['sifra']:<10}" \
                    f"{knjiga['naslov']:<20}" \
                    f"{knjiga['autor']:<20}" \
                    f"{knjiga['isbn']:^20}" \
@@ -108,7 +108,7 @@ def ispisi_knjige(knjige):
                    f"{knjiga['broj_strana']:^20}" \
                    f"{knjiga['cena']:^20}" \
                    f"{knjiga['kategorija']:^20}"
-        print(za_ispis)
+          print(za_ispis)
 
 
 def dodaj_knjigu():

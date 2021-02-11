@@ -15,7 +15,7 @@
         "sifra": 2,
         "isbn": "556677",
         "naslov": "Deca zla",
-        "autor": "Miodrag Majić",
+        "autor": "Miodrag Majic",
         "izdavac": "Laguna",
         "godina_izdanja": 2018,
         "broj_strana": 150,
@@ -26,25 +26,37 @@
     {
         "sifra": 3,
         "isbn": "789123",
-        "naslov": "Mračna šuma",
+        "naslov": "Mracna suma",
         "autor": "Liju Cisin",
         "izdavac": "Vulkan",
         "godina_izdanja": 2019,
         "broj_strana": 315,
         "cena": 1230.0,
-        "kategorija": "naučna fantastika",
+        "kategorija": "naucna fantastika",
         "obrisana": "False"
     },
     {
         "sifra": 4,
-        "naslov": "Na drini cuprija",
+        "naslov": "Na Drini cuprija",
         "autor": "Ivo Andric",
         "isbn": "223344",
         "izdavac": "Laguna",
         "godina_izdanja": 1945,
-        "broj_strana": 318,
+        "broj_strana": 300,
         "cena": 900.0,
         "kategorija": "roman",
         "obrisana": "False"
+    },
+    {
+        "sifra": 5,
+        "naslov": "Mali princ",
+        "autor": "Antoan De Sent Egziperi",
+        "isbn": "555666",
+        "izdavac": "laguna",
+        "godina_izdanja": 2000,
+        "broj_strana": 150,
+        "cena": 900,
+        "kategorija": "roman",
+        "obrisana": "True"
     }
 ]

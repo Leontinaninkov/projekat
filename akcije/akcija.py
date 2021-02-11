@@ -64,7 +64,7 @@ def dodaj_akciju():
     datum = input('Unesite datum (dd/MM/yyyy): ')
 
     while (True):
-        p = input('Unesite akciju (id:cena) [x->kraj]: ')
+        p = input('Unesite akciju (sifra :cena) [x->kraj]: ')
         if p == 'x':
             break
         ponuda[p.split(':')[0]] = int(p.split(':')[1])
@@ -73,7 +73,8 @@ def dodaj_akciju():
         {
             'sifra': sifra,
             'ponuda': ponuda,
-            'datum': datum
+            'datum': datum,
+            'kupljena': 0
         })
 
     sacuvaj_akcije(akcije)

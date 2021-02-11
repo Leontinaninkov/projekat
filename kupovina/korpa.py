@@ -2,13 +2,14 @@ from akcije.akcija import ucitaj_akcije, ispisi_akcije
 from knjige.knjiga import ucitaj_knjige, ispisi_knjige
 from datetime import datetime
 from kupovina.racunIO import sacuvaj_racune, ucitaj_racune
+from akcije.akcijaIO import sacuvaj_akcije
 
 korpa = {}
 
-
 def dodaj_u_korpu(korisnik):
-    korpa = {}
 
+    korpa = {}
+    akcije_korpa = {}
     while True:
 
         print("-" * 20)
@@ -23,9 +24,14 @@ def dodaj_u_korpu(korisnik):
         if stavka == 1:
             dodavanje_knjige()
         elif stavka == 2:
-            dodavanje_akcije()
+            korpa_akcije = dodavanje_akcije()
+            for sifra in korpa_akcije.keys():
+                if sifra not in akcije_korpa.keys():
+                    akcije_korpa[sifra] = korpa_akcije[sifra]
+                else:
+                    akcije_korpa[sifra] += korpa_akcije[sifra]
         elif stavka == 3:
-            napravi_racun(korisnik, )
+            napravi_racun(korisnik, akcije_korpa)
             break
         elif stavka == 5:
             prikazi_korpu()
@@ -63,12 +69,18 @@ def dodavanje_akcije():
     akcije = ucitaj_akcije()
     ispisi_akcije(akcije, knjige)
 
+    akcije_korpa = {}
     while True:
         sifra = int(input("Unesite [sifra] za kupovinu knjiga iz akcije ili [0] za izlaz: "))
         if sifra == 0:
             break
         for akcija in akcije:
             if akcija['sifra'] == sifra and datetime.strptime(akcija['datum'], f'%d/%m/%Y') >= datetime.today():
+                if str(sifra) not in akcije_korpa.keys():
+                    akcije_korpa[sifra] = 1
+                else:
+                    akcije_korpa[sifra] +=1
+
                 for knjiga_id in akcija['ponuda'].keys():
                     print(f'{knjiga_id} {korpa.keys()}')
                     if knjiga_id not in korpa.keys():
@@ -78,6 +90,7 @@ def dodavanje_akcije():
                         korpa[knjiga_id]['kolicina'] += 1
                 break
 
+    return akcije_korpa
 
 def dodavanje_knjige():
 
@@ -92,7 +105,7 @@ def dodavanje_knjige():
         kolicina = int(sifra_kolicna.split(':')[1])
         for knjiga in knjige:
             if knjiga['sifra'] == sifra:
-                print(f'{knjiga["sifra"]} {korpa.keys()}')
+
                 if str(sifra) not in korpa.keys():
                     korpa[str(sifra)] = {'kolicina': kolicina, 'cena': knjiga['cena'] * kolicina}
                 else:
@@ -101,8 +114,15 @@ def dodavanje_knjige():
                 break
 
 
-def napravi_racun(korisnik):
+def napravi_racun(korisnik, akcije_korpa):
     racuni = ucitaj_racune()
+    akcije = ucitaj_akcije()
+    for akcija_sifra in akcije_korpa:
+        for akcija in akcije:
+            if akcija['sifra'] == akcija_sifra:
+                akcija['kupljena'] += 1
+
+    sacuvaj_akcije(akcije)
 
     maks = racuni[0]['sifra']
 

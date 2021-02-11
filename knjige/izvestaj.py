@@ -1,6 +1,7 @@
 from kupovina.racunIO import ucitaj_racune
 from knjige.knjigaIO import ucitaj_knjige
 from knjige.knjiga import ispisi_knjige
+from akcije.akcijaIO import ucitaj_akcije
 
 
 def napravi_izvestaj():
@@ -19,13 +20,34 @@ def napravi_izvestaj():
     if stavka == 1:
         izvestaj_svih_knjiga(racuni)
     elif stavka == 2:
-        pass
+        izvestaj_svih_akcija()
     elif stavka == 3:
         izvestaj_po_autoru(racuni)
     elif stavka == 4:
         izvestaj_po_izdavacu(racuni)
     elif stavka == 5:
         izvestaj_po_kategoriji(racuni)
+
+
+def izvestaj_svih_akcija():
+    izvestaj = {}
+    akcije = ucitaj_akcije()
+    knjige = ucitaj_knjige()
+    for akcija in akcije:
+        if akcija['kupljena'] > 0:
+            for sifra in akcija['ponuda'].keys():
+                for knjiga in knjige:
+                    if knjiga['sifra'] == int(sifra):
+                        if sifra not in izvestaj.keys():
+                            izvestaj[sifra] = {'naslov': knjiga['naslov'], 'kolicina': akcija['kupljena'],
+                                               'zarada': akcija['ponuda'][sifra] * akcija['kupljena']}
+                        else:
+                            izvestaj[sifra]['kolicina'] += akcija['kupljena']
+                            izvestaj[sifra]['zarada'] += akcija['ponuda'][sifra] * akcija['kupljena']
+
+    ispisi_izvestaj(izvestaj)
+
+
 
 
 def izvestaj_po_kategoriji(racuni):
